@@ -1,0 +1,1164 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CoolGuy-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/CoolGuy-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    width:100vw;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1vw;
+    font-family: 'SUIT-Regular';
+    background: black;
+}
+
+
+
+/* 마우스호버이벤트 */
+
+#mouse-cursor{
+    position: absolute;
+    top:0;
+    left:0;
+    pointer-events: none;
+    z-index: 101;
+    border-radius: 50%;
+    display: none;
+  }
+  #inner-cursor{
+    position: relative;
+    width:80px;
+    height:80px;
+    z-index: 102;
+    font-size: 25px;
+    line-height: 80px;
+    text-align: center;
+    border-radius: 50%;
+    backdrop-filter: contrast(.2);  
+    --cursor-scale : 1;
+    transform: scale(var(--cursor-scale),var(--cursor-scale));
+    transition: 150ms ease-in-out;
+    color: #ffffff;
+  }
+
+/* 메인메뉴 */
+
+.main-menu{
+    background: black;
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    position: absolute;
+    top:0;
+    left:0;
+    height:6vh;
+    transition-property: height;
+    transition-duration: 0.1s;
+    z-index: 5;
+}
+.nav{
+    height:100%;
+    position: relative;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style: none;
+    margin-left: 5vw;
+    display: inline-block;
+    height:6vh;
+}
+.menu{
+    color: white;
+    font-weight: bold;    
+    text-decoration: none;
+}
+.log-in{
+    position : relative;
+    right : 6vw;
+    margin-top: 1vw;
+    font-weight: bold;  
+}
+.sub-menu{
+    position: absolute;
+    padding: .5rem 1rem;
+    opacity: 1; 
+    width:100vw;
+    padding: 1rem;
+    color:white;
+    font-weight: 600;
+    bottom: 0;
+  }
+.sub-menu>span:nth-child(1){
+    margin-left:6.2vw;
+    
+}
+.sub-menu>span{
+    margin-right: 3vw;
+}
+.lines{
+    color:white;
+    position:absolute;
+    top:2.5vw;
+    opacity:0;
+    transition: 0.2s;
+    z-index: 2;
+    width: 100vw;
+}
+
+
+
+#eagles:hover,#player:hover,#photo:hover,#comunity:hover{
+    color: orange;
+    transition: 0.3s;
+}
+
+#HISTORY:hover,#오시는길:hover,#마스코트:hover,#선수단:hover,#선수기록:hover{
+    color: #32b2b2;
+    transition: 0.3s;
+}
+
+
+/* 사이드메뉴 */
+html{
+    scroll-behavior:smooth;
+}
+.side-bar{
+    position: fixed;
+    right: 10px;
+    bottom : 2vh;
+    width: 80px;
+    height: 200px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    z-index: 98;
+}
+.side-box{
+    width: 95%;
+    height : 60px;
+    line-height:60px;
+    text-align: center;
+    background: #363636;
+    border-radius: 5px;
+    z-index: 99;
+    color: rgb(248, 222, 205);
+}
+.terms-description{
+    position: fixed;
+    right: 3.5vw;
+    bottom: 20vh;
+    width:0vw;
+    height:0vh;
+    background: white;
+    z-index: 97;
+    border-radius:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2vh;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.lang,.creater{
+    width:85%;
+    height:40%;
+    border:solid 1px black;
+    border-radius: 15px;
+    color: black;
+    box-sizing: border-box;
+    padding-left: 0.5vw;
+}
+.lang-title, .creater-title{
+    text-align: center;
+    margin-bottom: 0.9vh;
+    font-weight: bold;
+}
+.lang-text,.creater-text{
+    margin-bottom: 0.2vh;
+}
+.des-cancel{
+    position: absolute;
+    top:0;
+    right: 0.4vw;
+    color: black;
+}
+.des-cancel:hover{
+    color: #8b8b8b;
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+/* 메인섹션 */
+.section1-img1,.section1-img2,.section1-img3{
+    width:100%;
+    position: relative;
+    transform: scale(1.7);
+    transition: 0.5s;
+}
+.section1-img1{
+    top:20vh;
+}
+.section1-img2{
+    top:-20vh;
+    left:35vw;
+}
+.section1-img3{
+    top:-60vh;
+}
+.section-1{
+    position: relative;
+    top:12.5vh;
+    width:100vw;
+    height:140vh;
+    padding-top: 10vh;
+}
+.part1{
+    position: relative;
+    top:-10vh;
+    left:3vw;
+    width:100%;
+    height:20vh;
+    line-height: 20vh;
+    font-size: 5vw;
+    color: rgb(255, 102, 0);
+}
+.part2,.part3,.part4{
+    width:100%;
+    height:40vh;
+    overflow: hidden;
+
+}
+
+
+/* 섹션2 */
+.section-2{
+    width:100vw;
+    height:500vh;
+    text-align: center;
+    position: relative;
+    top:12.5vh;
+    /* overflow: hidden; */
+}
+.sec2-content{
+    width:300vw;
+    height:100vh;
+    position: sticky;
+    top:0;
+    /* left : -100vw; */
+    transition: 0.5s;
+}
+.newplayer-logo{
+    position: absolute;
+    left:30vw;
+    width:40vw;
+    color: rgb(255, 102, 0);
+}
+.sec2-title{
+    width:40vw;
+    height:20vh;
+    display: flex;
+    position: relative;
+    left:8vw;
+    top:24vh;
+}
+
+.sec2-wrapper1, .sec2-wrapper2, .sec2-wrapper3, .sec2-wrapper4{
+    display: inline-block;
+    font-size: 4.1vw;
+    margin-right: 1vw;
+    overflow: hidden;
+    height: 10vh;
+    line-height: 10vh;
+
+}
+.sec2-container1, .sec2-container2, .sec2-container3, .sec2-container4{
+    height:10vh;
+    transition: 1.5s;
+    position: relative;
+    top:10vh;
+
+}
+
+.sec2-slogun{
+    width:40vw;
+    height:8vh;
+    position: absolute;
+    top:12vh;
+    left:-3vw;
+    font-size: 4.1vw;
+    line-height: 8vh;
+    text-align: right;
+    overflow: hidden;
+}
+.sec2-slogun-wrapper{
+    width:40vw;
+    height:8vh;
+    position: relative;
+    top:8vh;
+    transition: 1s;
+}
+
+
+/* 섹션2- 선수영입리스트 */
+/* 선수1 */
+.sec2-content-box1{
+    width:70vw;
+    height:40vh;
+    position:absolute;
+    left: 65vw;
+    top:60vh;
+}
+.sec2-box1-img{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width:35vw;
+    height:40vh;
+}
+.sec2-box1-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.sec2-box1-text{
+    position: absolute;
+    left:40vw;
+    bottom: 0;
+    width:25vw;
+    height:40vh;
+}
+.sec2-text-title{
+    width:100%;
+    height:6vh;
+    text-align: left;
+}
+.title-name, .title-number{
+    display: inline-block;
+    height:100%;
+    font-size: 2vw;
+    padding-right: 0.5vw;
+}
+.title-number{
+    font-size: 1.7vw;
+    position: absolute;
+    height:7vh;
+    top:0.5vh;
+    color: rgb(255, 102, 0);
+}
+.sec2-text-content{
+    height:40vh;
+    margin-top: 1.5vh;
+    text-align: left;
+    box-sizing: border-box;
+}
+.text-text{
+    font-size: 1.3vw;
+    line-height: 6vh;
+}
+/* 선수2 */
+.sec2-content-box2{
+    width:70vw;
+    height:40vh;
+    position:absolute;
+    left: 125vw;
+    top:20vh;
+}
+.sec2-box2-img{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width:35vw;
+    height:40vh;
+}
+.sec2-box2-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.sec2-box2-text{
+    position: absolute;
+    left:40vw;
+    bottom: 0;
+    width:25vw;
+    height:40vh;
+}
+.sec2-text-title{
+    width:100%;
+    height:6vh;
+    text-align: left;
+}
+.title-name, .title-number{
+    display: inline-block;
+    height:100%;
+    font-size: 2vw;
+    padding-right: 0.5vw;
+}
+.title-number{
+    font-size: 1.7vw;
+    position: absolute;
+    height:7vh;
+    top:0.5vh;
+    color: rgb(255, 102, 0);
+}
+.sec2-text-content{
+    height:40vh;
+    margin-top: 1.5vh;
+    text-align: left;
+    box-sizing: border-box;
+}
+.text-text{
+    font-size: 1.3vw;
+    line-height: 6vh;
+}
+
+
+/* 선수3 */
+.sec2-content-box3{
+    width:70vw;
+    height:40vh;
+    position:absolute;
+    left: 180vw;
+    top:40vh;
+}
+.sec2-box3-img{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width:35vw;
+    height:40vh;
+}
+.sec2-box3-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.sec2-box3-text{
+    position: absolute;
+    left:40vw;
+    bottom: 0;
+    width:25vw;
+    height:40vh;
+}
+.sec2-text-title{
+    width:100%;
+    height:6vh;
+    text-align: left;
+}
+.title-name, .title-number{
+    display: inline-block;
+    height:100%;
+    font-size: 2vw;
+    padding-right: 0.5vw;
+}
+.title-number{
+    font-size: 1.7vw;
+    position: absolute;
+    height:7vh;
+    top:0.5vh;
+    color: rgb(255, 102, 0);
+}
+.sec2-text-content{
+    height:40vh;
+    margin-top: 1.5vh;
+    text-align: left;
+    box-sizing: border-box;
+}
+.text-text{
+    font-size: 1.3vw;
+    line-height: 6vh;
+}
+
+
+/* 선수4 */
+.sec2-content-box4{
+    width:70vw;
+    height:40vh;
+    position:absolute;
+    right:-5vw;
+    top:55vh;
+}
+.sec2-box4-img{
+    position: absolute;
+    left:0;
+    bottom: 0;
+    width:35vw;
+    height:40vh;
+}
+.sec2-box4-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+}
+.sec2-box4-text{
+    position: absolute;
+    left:40vw;
+    bottom: 0;
+    width:25vw;
+    height:40vh;
+}
+.sec2-text-title{
+    width:100%;
+    height:6vh;
+    text-align: left;
+}
+.title-name, .title-number{
+    display: inline-block;
+    height:100%;
+    font-size: 2vw;
+    padding-right: 0.5vw;
+}
+.title-number{
+    font-size: 1.7vw;
+    position: absolute;
+    height:7vh;
+    top:0.5vh;
+    color: rgb(255, 102, 0);
+}
+.sec2-text-content{
+    height:40vh;
+    margin-top: 1.5vh;
+    text-align: left;
+    box-sizing: border-box;
+}
+.text-text{
+    font-size: 1.3vw;
+    line-height: 6vh;
+}
+
+
+
+/* 섹션3 포토섹션 */
+.section-3{
+    position: relative;
+    margin-top: 15vw;
+    width:100vw;
+    height:120vh;
+    display: flex;
+    flex-direction: column;
+}
+.photo-logo{
+    text-align: center;
+    height:10vh;
+    line-height: 5vh;
+    margin-bottom: 2vw;    
+}
+h2{
+    font-size: 4vw;
+}
+.photo-box{
+    height:100vh;
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    
+}
+.img-box{
+    position: absolute;
+    top: 76vh;
+    width:20vw;
+    height:12vw;
+    transition: left 1s, top 1s, opacity 0.2s;
+    opacity: 0;    
+}
+.photo-img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.img-box:hover{
+    animation-name: imghover;
+    animation-duration: 1s;
+}
+
+@keyframes imghover{
+   20%{transform: translateY(-0.5vw);}
+}
+
+
+
+/* 섹션4 마스코트 */
+.sec4-logo{
+    background: rgb(255, 102, 0);
+    width:90vw;
+    height:40vh;
+    position: absolute;
+    border-radius: 30px;
+    top:830vh;
+    text-align: center;
+    font-size: 3.5vw;
+    color:rgb(128, 52, 2);
+}
+.section-4{
+    margin-top: 10vh;
+    width:100vw;
+    height:150vh;
+    text-align: center;
+    background: #282828;
+    z-index: 3;
+    border-radius: 30px;
+    background: #eaff00;
+    color: black;
+    position: relative;
+    top:40vh;
+
+}
+.flow-text{
+    display: inline-block;
+}
+
+
+.sec4-flow-text {
+    margin-top: 2vh;
+    display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
+    font-weight:bold;
+    font-size: 10vw;
+}
+.sec4-flow-wrap {
+  animation: textLoop 45s linear infinite;
+  margin-right: 3vw;
+  display: flex;
+  gap:0.5vw;
+  color:#bc0;
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
+/* 섹션4 컨텐츠 */
+.sec4-content{
+    width:100%;
+    height: 70%;
+    display: flex;
+    gap:3vw;
+}
+.sec4-con-img{
+    width:35%;
+    height:80%;
+    position: relative;
+    top:4vh;
+    margin-left : 8vw;
+    border-radius: 20px;
+}
+.sec4-con-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;    
+    border-radius: 20px;
+}
+.sec4-con-text{
+    width:45%;
+    height:80%;
+    border: solid 3px black;
+    position: relative;
+    top:4vh;
+    border-radius: 20px;
+}
+.sec4-con-text{
+    text-align: left;
+    font-size: 2.5vw;
+    line-height: 6.5vh;
+    box-sizing: border-box;
+    padding-left: 1vw;
+    color: rgb(101, 110, 0);
+    font-family: 'Ownglyph_meetme-Rg'
+}
+.sec4-tex-title{
+    height:10vh;
+    font-size: 5vw;
+    line-height: 10vh;
+    color:rgb(255, 102, 0);
+    margin-bottom: 4vh;
+    font-family: 'Ownglyph_meetme-Rg'
+}
+.sec4-tex-footer{
+    font-size:3vw;
+    font-family: 'Ownglyph_meetme-Rg';
+    margin-top: 2vh;
+    color: #97afe6;
+}
+.masBtn{
+    width: 10vw;
+    height:10vh;
+    position: relative;
+    left : 17vw;
+    top: 4vh;
+    font-size: 4vw;
+    line-height: 10vh;
+    text-align: center;
+    color: #4a546b;
+    border-radius: 20px;
+    background: #97afe6;
+    transition: 0.8s;
+    animation: btnAnima 2s infinite;
+}
+.cheerBtn{
+    width: 10vw;
+    height:10vh;
+    position: relative;
+    left : 17vw;
+    top: 4vh;
+    font-size: 4vw;
+    line-height: 10vh;
+    text-align: center;
+    color: #4a546b;
+    border-radius: 20px;
+    background: #97afe6;
+    transition: 0.8s;
+    animation: btnAnima 2s infinite;
+
+}
+.cheerBtn:hover{
+    color: #97afe6;
+    background:#4a546b;
+}
+.masBtn:hover{
+    color: #97afe6;
+    background:#4a546b;
+}
+@keyframes btnAnima{
+    40%{
+        transform: translateY(-1vh);
+    }
+    60%{
+        transform: translateY(0vh);
+    }
+}
+
+
+
+
+/* 섹션5 치어리더 */
+.section-5{
+    margin-top: 5vw;
+    width:100vw;
+    height:120vh;
+    text-align: center;
+    z-index: 4;
+    position: relative;
+    top:865vh;
+    background: beige;
+    position: absolute;
+    border-radius: 30px;
+    transition: 1s;
+}
+.sec5-flow-text {
+    margin-top: 2vh;
+    display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
+    font-weight:bold;
+    font-size: 10vw;
+}
+.sec5-flow-wrap {
+  animation: textLoop 45s linear infinite;
+  margin-right: 3vw;
+  display: flex;
+  gap:0.5vw;
+  color:rgb(143, 125, 91);
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+
+.flow-text:nth-child(1),.flow-text:nth-child(3),.flow-text:nth-child(5){
+    animation: fontAnimation 2s infinite;
+}
+.flow-text:nth-child(2),.flow-text:nth-child(4){
+    animation: fontAnimation 2s infinite;
+    animation-delay: 0.5s;
+}
+.flow-text:nth-child(8){
+    animation: fontTransformHigh 2s infinite;
+}
+.flow-text-l7{
+    animation: fontLotate 2s infinite;
+}
+.flow-text-m6{
+    animation: fontLotate 2s infinite;
+    animation-delay: 0.3s;
+}
+.flow-text-l6{
+    animation: fontAnimation 3s infinite;
+    animation-delay: 0.8s;
+}
+.flow-text-m7{
+    animation: fontAnimation 3s infinite;
+    animation-delay: 0.2s;
+}
+.flow-text:nth-child(9){
+    animation: fontTransformLow 2s infinite;
+    animation-delay: 0.2s;
+}
+.flow-text-l12{
+    animation: fontTransformLow 2s infinite;
+    animation-delay: 0.4s;
+}
+.flow-text-l10,.flow-text-m11{
+    animation: fontLotateMore 2.5s infinite;
+
+}
+.flow-text-l11,.flow-text-m10{
+    animation: fontAnimation 2s infinite;
+}
+@keyframes fontAnimation{
+    30%{
+        transform: translateY(-1.8vh);
+    }
+    60%{
+        transform: translateY(0vh);
+    }
+}
+@keyframes fontLotate{
+    30%{   
+        transform: rotateZ(10deg) ;
+
+    }
+    60%{
+        transform: rotateZ(-5deg) ;
+    }
+}
+@keyframes fontTransformHigh{
+    30%{
+        transform: translateY(-3.5vh) scaleX(0.9);
+
+    }
+    60%{
+        transform: translateY(0vh) scaleX(1);
+    }
+    70%{
+        transform: translateY(-0.5vh);
+    }
+    80%{
+        transform: translateY(0vh);
+    }
+}
+@keyframes fontTransformLow{
+    30%{
+        transform: translateY(-1.5vh) scaleX(0.9);
+
+    }
+    60%{
+        transform: translateY(0vh) scaleX(1);
+    }
+    70%{
+        transform: translateY(-0.5vh);
+    }
+    80%{
+        transform: translateY(0vh);
+    }
+}
+@keyframes fontLotateMore{
+    30%{   
+        transform: rotateZ(20deg) ;
+
+    }
+    60%{
+        transform: rotateZ(-10deg) ;
+    }
+}
+
+
+
+/* 섹션5 치어리더 */
+.sec5-content{
+    width:100%;
+    height: 70%;
+    display: flex;
+    gap:3vw;
+}
+.sec5-con-img{
+    width:35%;
+    height:80vh;
+    position: relative;
+    top:4vh;
+    margin-left : 8vw;
+    border-radius: 20px;
+}
+.sec5-con-img > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;   
+    border-radius: 20px; 
+}
+.sec5-con-text{
+    width:45%;
+    height:80vh;
+    border: solid 3px rgb(101, 110, 0);
+    position: relative;
+    top:4vh;
+    border-radius: 20px;
+}
+.sec5-con-text{
+    text-align: left;
+    font-size: 2.5vw;
+    line-height: 6.5vh;
+    box-sizing: border-box;
+    padding-left: 1vw;
+    color: rgb(133, 133, 133);
+    font-family: 'Ownglyph_meetme-Rg'
+}
+.sec5-tex-title{
+    height:10vh;
+    font-size: 5vw;
+    line-height: 10vh;
+    color:black;
+    margin-bottom: 4vh;
+    font-family: 'Ownglyph_meetme-Rg'
+}
+.sec5-tex-footer{
+    font-size:3vw;
+    font-family: 'Ownglyph_meetme-Rg';
+    margin-top: 2vh;
+    color: rgb(255, 102, 0);
+}
+.masBtn{
+    width: 10vw;
+    height:10vh;
+    position: relative;
+    left : 17vw;
+    top: 4vh;
+    font-size: 4vw;
+    line-height: 10vh;
+    text-align: center;
+    color: black;
+    border-radius: 20px;
+    background: rgb(255, 102, 0);
+    transition: 0.8s;
+    animation: btnAnima 2s infinite;
+}
+.masBtn:hover{
+    color: #eaff00;
+    background:rgb(101, 110, 0);
+}
+
+
+
+
+
+/* 섹션5-2 */
+.section5-2{
+    width:100vw;
+    height:240vh;
+    box-sizing: border-box;
+    position: relative;
+    top:130vh;
+    background: #282828;
+    display: flex;
+    justify-content: space-between;
+}
+.sec5-2-imgbox1,.sec5-2-imgbox3{
+    width:24%;
+    height:280vh;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+}
+.sec5-2-imgbox2,.sec5-2-imgbox4{
+    width:24%;
+    height:350vh;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+}
+.imgbox1-box,.imgbox2-box,.imgbox3-box,.imgbox4-box{
+    width:100%;
+    height:70vh;
+    margin-bottom: 2.5vh;
+    border-radius: 15px;
+}
+.imgbox1-box > img, .imgbox2-box > img, .imgbox3-box > img, .imgbox4-box > img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    border-radius: 15px;
+}
+
+.sec5-2-imgbox2, .sec5-2-imgbox4{
+    top: -150vh;
+}
+
+
+
+/* 섹션6 레전드 */
+.regend-logo{
+    width:80vw;
+    height:20vh;
+    position: absolute;
+    z-index: 4;
+    border-top-left-radius: 20px;
+    top:-20vh;
+    right: 0;
+    background: black;
+    box-sizing: border-box;
+    padding-left: 3vw;
+    color: white;
+    font-size: 8vw;
+    font-family: 'CoolGuy-Medium';
+    line-height: 25vh;
+    overflow: hidden;
+}
+.section-6{
+    width:100vw;
+    height:130vh;
+    position: relative;
+    top:110vh;
+    background: black;    
+}
+.sec6-logo{
+    width:100%;
+    height:100vh;
+    position: relative;
+    top:20vh;
+    transition: 0.5s;
+}
+.sec6-container{
+    width:100%;
+    height:100vh;
+    display: flex;
+    position: relative;
+    top:20vh;
+}
+.sec6-con-box:nth-child(1),.sec6-con-box:nth-child(3),.sec6-con-box:nth-child(4){
+    position: relative;
+    width:20%;
+    height:100vh;
+    transition: 1s;
+}
+
+.sec6-con-box:nth-child(2){
+    position: relative;
+    width:40%;
+    height:100vh;
+    transition: 1s;
+}
+.sec6-content{
+    width:100%;
+    height:130vh;
+}
+
+#im-2{
+    width:100%;
+    height:100vh;
+    object-fit: fill;
+    opacity: 1;
+    transition: 0.8s;
+}
+#im-1,#im-3,#im-4{
+    width:100%;
+    height:100vh;
+    object-fit: fill;
+    opacity: 0;
+    transition: 0.8s;
+}
+.sec6-tex-wrapper{
+    width:13vw;
+    height:8vh;
+    overflow: hidden;
+    z-index: 3;
+    position: absolute;
+    top:20vh;
+
+}
+.sec6-tex{
+    width:100%;
+    height:100%;
+    font-size: 4vw;
+    color: #eaff00;
+    font-weight: bold;
+    font-family: 'CoolGuy-Medium';
+    line-height: 8vh;
+    padding-left: 1vw;
+    box-sizing: border-box;
+    transition: 0.4s;
+}
+
+
+
+.sec6-flow-container{
+    width:100%;
+    height:10vh;
+    position: relative;
+    top:3vh;
+}
+.sec6-flow-text {
+
+    display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: 0.3s;
+    font-size: 2.5vw;
+    font-weight:bold;
+    color: #9D9993;
+}
+
+.sec6-flow-wrap {
+  animation: textLoop 25s linear infinite;
+  padding-right: 1.4881vw;
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}

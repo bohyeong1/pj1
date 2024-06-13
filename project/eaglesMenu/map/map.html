@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+
+            <!-- 마우스호버이벤트박스 -->
+            <div id="mouse-cursor">
+                <div id="inner-cursor">More</div>
+            </div>
+    
+            
+<!-- 사이드메뉴 -->
+
+<div class="side-bar">
+    <div class="side-box">TERMS</div>
+    <div class="side-box">T O P</div>
+    <div class="side-box" onclick="location.href='../../main/main.html'">MAIN</div>
+</div>
+<div class="terms-description">
+    <div class="des-cancel">close</div>
+    <div class="lang">
+        <div class="lang-title">사용언어</div>
+        <div class="lang-text">Html</div>
+        <div class="lang-text">Css</div>
+        <div class="lang-text">Javascript</div>
+        <div class="lang-text">라이브러리 : 카카오지도</div>
+    </div>
+    <div class="creater">
+        <div class="creater-title">설명</div>
+        <div class="creater-text">제작자 : 서보형</div>
+        <div class="creater-text">제작목적 : 한화이글스 응원 및<br> 자바스크립트 연습</div>
+        <div class="creater-text">이윤추구 : X</div>
+    </div>
+</div>
+
+
+<!-- 메인메뉴 -->
+<header>
+    <div class="main-menu">
+        <div class="nav">
+            <ul>
+                <li>
+                    <a href="#" class="menu">EAGLES</a>
+                </li>
+                <li>
+                    <a href="#" class="menu">PLAYER</a>
+                </li>
+                <li>
+                    <a href="#" class="menu" onclick="location.href='../../gallery/photo.html'">PHOTO</a>
+                </li>
+                <li>
+                    <a href="#" class="menu" onclick="location.href='../../comunity/list/list.html'">COMUNITY</a>
+                </li>                        
+            </ul>    
+            <hr class="lines">                
+        </div>
+        <div class="log-in">LOGIN</div>                             
+    </div>          
+</header>
+
+
+<!-- 지도api -->
+    <div class="section1">
+        <div class="sec1-logo">구장위치</div>
+
+        <div id="map" ></div>
+
+        <div id="clickLatlng"></div>
+        
+        <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=ca59280e8c00bd7e0186877a6e6ab2bc"></script>
+        <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new kakao.maps.LatLng(36.317026332283476,127.42917902305021), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+        
+        
+
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        
+        // 지도를 클릭한 위치에 표출할 마커입니다
+        var marker = new kakao.maps.Marker({ 
+            // 지도 중심좌표에 마커를 생성합니다 
+            position: map.getCenter() 
+        }); 
+        // 지도에 마커를 표시합니다
+        marker.setMap(map);
+        
+        // 지도에 클릭 이벤트를 등록합니다
+        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+            
+            // 클릭한 위도, 경도 정보를 가져옵니다 
+            var latlng = mouseEvent.latLng; 
+            
+            // 마커 위치를 클릭한 위치로 옮깁니다
+            marker.setPosition(latlng);
+            
+            var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+            message += '경도는 ' + latlng.getLng() + ' 입니다';
+            
+            var resultDiv = document.getElementById('clickLatlng'); 
+            resultDiv.innerHTML = message;
+            
+        });
+
+
+
+
+
+        </script>
+
+        <div class="sec1-footer">
+            <div class="footer-address">주소</div>
+            <div class="address-text"> 대전광역시 중구 대종로 373</div>
+            <div class="footer-tele">전화번호</div>
+            <div class="tele-text">042-630-8200</div>
+            <div class="footer-seat">좌석수</div>
+            <div class="seat-text">12000석</div>
+        </div>
+    </div>
+
+
+    
+  
+    <script src="map.js"></script>
+</body>
+</html>
