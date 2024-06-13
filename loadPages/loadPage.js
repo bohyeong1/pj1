@@ -5,7 +5,7 @@ const wrapper = document.querySelector('.wrapper')
 //배경박스
 for(let i=0; i<5; i++){
     for(let j=0; j<10; j++){
-        backbox = document.createElement('div')
+        const backbox = document.createElement('div')
         backbox.className = 'backbox'
         backbox.style.left = `${10*j}vw`
         backbox.style.top = `${20*i}vh`
@@ -32,7 +32,7 @@ function backBoxDisappear(){
       lists.add(Math.floor(Math.random()*50));
     }
 
-    for(list of lists){                   
+    for(let list of lists){                   
         backClosers(list)        
     }
 }
@@ -62,7 +62,7 @@ function closer(){
         if(i===10){i=1}}
     return boxAnimation
 }
-closers = closer()
+const closers = closer()
 
 function boxDisappear(){    
     inventorys = []
@@ -79,39 +79,37 @@ function boxDisappear(){
         closers(inventory)        
     }
 }
+
 window.addEventListener('load', boxDisappear)
 
 
 //백브라우저 텍스트 입력 효과
-back_Browser = document.querySelector('.backBrowser')
-text_box = document.querySelector('.text-box')
-textBoxs = document.querySelectorAll('.text')
-btn = document.querySelector('.button')
-texts = ['해당 홈페이지는 상업적인 목적을 갖지 않고','한화 이글스를 응원을 위해 만들어 졌습니다.','제작자 : 서보형']
+const back_Browser = document.querySelector('.backBrowser')
+const text_box = document.querySelector('.text-box')
+const textBoxs = document.querySelector('.text')
+const btn = document.querySelector('.button')
+const texts = ['Created by Seo Bo Hyeong...']
 
 let i = 0;
 
 const displayText = async() => {
 
-    for(let i=0; i<2; i++){
+    for(let i=0; i<texts.length; i++){
     const text = texts[i].split('')
     while(text.length){
-        await wait(100)
-        textBoxs[i].innerHTML += text.shift()
-    }}
+        await wait(200)
+        textBoxs.innerHTML += text.shift()
+    }} 
+
     
-    const text2 = texts[2].split('')
-    while(text2.length){
-    await wait(100)
-    textBoxs[2].innerHTML += text2.shift()
-    textBoxs[2].style.fontSize = 1.4 + 'vw'
-    }
-    await wait(2000)
-    const text3 = texts[2].split('')
-    while(text3.length){
+
+    await wait(2600)
+    const text3 = texts[0].split('')
+    console.log(texts[0].length)
+    while(text3.length > (texts[0].length - 3)){
         await wait(100)
         text3.pop()
-        textBoxs[2].innerHTML = text3.join('')
+        textBoxs.innerHTML = text3.join('')
 
     }
     await wait(800)
@@ -126,13 +124,15 @@ function wait(time){
     return new Promise(dum => setTimeout(dum,time))
 }
 
+
+
 setTimeout(displayText, 4500)
 
 
 //enter 버튼
 
 function mouseHover(e){
-    console.log(e.target)
+    // console.log(e.target)
     if(e.target===btn){
         e.target.style.color = 'white'
         e.target.style.border = 'solid 1px white'
