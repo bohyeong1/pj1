@@ -290,6 +290,7 @@ const clickExit = async()=>{
 photo_container.addEventListener('click', imgClick)
 exit.addEventListener('click', clickExit)
 
+
 //이미지 이;펙트
 overlay.addEventListener('mousemove', contentsRotate)
 
