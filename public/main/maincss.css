@@ -32,7 +32,15 @@ body{
     background: black;
 }
 
-
+/* 화면 온로드 시 wrapper */
+.root_wrapper{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;  height: 100vh;
+    background: black;
+    transition: 0.6s;
+    z-index: 100;
+}
 
 /* 마우스호버이벤트 */
 

@@ -339,7 +339,17 @@ sec6_con_box.forEach((ele)=>{ele.addEventListener('mouseover', extendContent)})
 
 
 
+/////////////////////////로드 이벤트
+const root_wrapper = document.querySelector('.root_wrapper')
 
+async function disappearWrapper(){
+    root_wrapper.style.opacity = 0
+
+    await wait(700)
+    root_wrapper.remove()
+}
+
+window.addEventListener('load', disappearWrapper)
 
 
 

@@ -1,6 +1,29 @@
 const loading = document.querySelector('.loading')
 const load_box = document.querySelector('.load-box')
 const wrapper = document.querySelector('.wrapper')
+const title_box = document.querySelector('.backBrowser > h1')
+const root_box = document.querySelector('body')
+
+
+const title_text_box = 'Hanwha Eagles'
+
+
+// 백브라우저 뒷배경 디브깔기
+for (let i = 0; i < 12; i++){
+    const back_borwser_box = document.createElement('div')
+    back_borwser_box.className = 'back_browser_boxs'
+    back_borwser_box.style.left = i*160 + 80 + 'px'
+    root_box.appendChild(back_borwser_box)
+}
+
+
+//로고 텍스트
+for(let i = 0; i<title_text_box.length; i++){
+    const spanbox = document.createElement('span')
+    spanbox.innerText = title_text_box[i]
+    spanbox.className = 'spanDefault'
+    title_box.appendChild(spanbox)
+}
 
 //배경박스
 for(let i=0; i<5; i++){
@@ -24,7 +47,8 @@ function backCloser(){
 }
 const backClosers = backCloser()
 
-function backBoxDisappear(){
+
+async function backBoxDisappear(){
     load_box.style.opacity = '0'
     const lists = new Set();
       
@@ -35,6 +59,15 @@ function backBoxDisappear(){
     for(let list of lists){                   
         backClosers(list)        
     }
+
+    const spanboxs = document.querySelectorAll('.backBrowser > h1 > span')
+    await wait(500)
+    
+    for(const s_box of spanboxs){
+        s_box.style.opacity = 1
+        await wait(100)
+    }
+
 }
 
 window.addEventListener('load',()=>{
@@ -87,23 +120,30 @@ window.addEventListener('load', boxDisappear)
 const back_Browser = document.querySelector('.backBrowser')
 const text_box = document.querySelector('.text-box')
 const textBoxs = document.querySelector('.text')
-const btn = document.querySelector('.button')
+// const btn = document.querySelector('.button')
 const texts = ['Created by Seo Bo Hyeong...']
 
 let i = 0;
+
+async function disappear_backbrw_boxs(){
+    const back_bw_boxs = document.querySelectorAll('.back_browser_boxs')
+    for(const b_bw_box of back_bw_boxs){
+        b_bw_box.style.width = 0
+        await wait(100)
+    }
+}
 
 const displayText = async() => {
 
     for(let i=0; i<texts.length; i++){
     const text = texts[i].split('')
     while(text.length){
-        await wait(200)
+        await wait(100)
         textBoxs.innerHTML += text.shift()
     }} 
+   
 
-    
-
-    await wait(2600)
+    await wait(600)
     const text3 = texts[0].split('')
     console.log(texts[0].length)
     while(text3.length > (texts[0].length - 3)){
@@ -114,10 +154,19 @@ const displayText = async() => {
     }
     await wait(800)
     text_box.style.opacity = 0  
-    await wait(100)
+    title_box.style.opacity = 0
+    await wait(1000)
     text_box.remove()
+    title_box.remove()
     wrapper.remove()
-    btn.style.opacity = 1
+
+    await wait(200)   
+    
+    await disappear_backbrw_boxs()
+
+    await wait(200)
+
+    location.href = './public/main/main.html'
 }
 
 function wait(time){
@@ -129,63 +178,4 @@ function wait(time){
 setTimeout(displayText, 4500)
 
 
-//enter 버튼
 
-function mouseHover(e){
-    // console.log(e.target)
-    if(e.target===btn){
-        e.target.style.color = 'white'
-        e.target.style.border = 'solid 1px white'
-        e.target.style.background = 'black'
-    }
-}
-
-back_Browser.addEventListener('mouseover',mouseHover)
-btn.addEventListener('mouseout',()=>{
-    btn.style.color = 'black'
-    btn.style.background = 'white'
-    cursorParent.style.display = 'none'
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////마우스 호버 이벤트
-const cursorParent = document.querySelector('#mouse-cursor')
-const cursorChild = document.querySelector('#inner-cursor')
-
-
-
-let cursorX = 0, cursorY = 0
-function mousemove(e){
-    cursorParent.style.display = 'block'
-    cursorX = e.pageX - cursorParent.offsetWidth/2
-    cursorY = e.pageY - cursorParent.offsetHeight/2
-    cursorParent.style.left = `${cursorX}px` 
-    cursorParent.style.top = `${cursorY}px`
-    e.target.style.cursor = 'none'
-}
-function mousedown(e){
-    cursorChild.style.setProperty('--cursor-scale',0.8)
-}
-function mouseup(e){
-    cursorChild.style.setProperty('--cursor-scale',1)
-}
-
-
-btn.addEventListener('mousemove', mousemove)
-btn.addEventListener('mousedown', mousedown)
