@@ -38,8 +38,8 @@ const main_menu = document.querySelector('.main-menu')
 const menus = document.querySelectorAll('.menu')
 const log_in = document.querySelector('.log-in')
 const menu_line = document.querySelector('.lines')
-const eaglesMenu = ['HISTORY', '오시는길', '마스코트']
-const playerMenu = ['선수단', '선수기록']
+const eaglesMenu = ['HISTORY', '마스코트']
+const playerMenu = ['선수단']
 const menuMap = {
   EAGLES : eaglesMenu,
   PLAYER : playerMenu
@@ -54,13 +54,12 @@ function createDropdown(menus, target){
   }
   nav.appendChild(submenu)
   const hisMenu = document.querySelector('#HISTORY')
-  const mapMenu = document.querySelector('#오시는길') 
+
   const mascot = document.querySelector('#마스코트')
   const player = document.querySelector('#선수단')
 
   if(target.innerText==='EAGLES'){
     hisMenu.addEventListener('click', ()=>{location.href = '../eaglesMenu/history/history.html'})
-    mapMenu.addEventListener('click', ()=>{location.href = '../eaglesMenu/map/map.html'})
     mascot.addEventListener('click', ()=>{location.href = '../eaglesMenu/mascot/mascot.html'})
     }else if(target.innerHTML==='PLAYER'){
         player.addEventListener('click', ()=>{location.href = '../playerMenu/player/player.html'})
